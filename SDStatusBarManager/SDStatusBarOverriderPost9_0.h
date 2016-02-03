@@ -23,13 +23,8 @@
 // --------------------------------------------------------------------------------
 
 #import <Foundation/Foundation.h>
+#import "SDStatusBarOverrider.h"
 
-@interface SDStatusBarManager : NSObject
-
-@property (assign, nonatomic, readonly) BOOL usingOverrides;
-
-- (void)enableOverrides;
-- (void)disableOverrides;
-+ (SDStatusBarManager *)sharedInstance;
+@interface SDStatusBarOverriderPost9_0 : NSObject  <SDStatusBarOverrider>
 
 @end

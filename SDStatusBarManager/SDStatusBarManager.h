@@ -22,8 +22,25 @@
 // SOFTWARE.
 // --------------------------------------------------------------------------------
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+typedef NS_ENUM(NSInteger, SDStatusBarManagerBluetoothState)
+{
+  SDStatusBarManagerBluetoothHidden = 0,
+  SDStatusBarManagerBluetoothVisibleDimmed,
+  SDStatusBarManagerBluetoothVisibleConnected
+};
+
+@interface SDStatusBarManager : NSObject
+
+@property (copy, nonatomic) NSString *carrierName;
+@property (copy, nonatomic) NSString *timeString;
+@property (assign, nonatomic, readonly) BOOL usingOverrides;
+@property (assign, nonatomic) SDStatusBarManagerBluetoothState bluetoothState;
+
+- (void)enableOverrides;
+- (void)disableOverrides;
+
++ (SDStatusBarManager *)sharedInstance;
 
 @end
